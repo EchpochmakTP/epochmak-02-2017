@@ -3,6 +3,7 @@ package techpark.controller;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jdk.nashorn.internal.runtime.regexp.joni.exception.ErrorMessages;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -61,8 +62,11 @@ public class UserController {
     @GetMapping("api/user")
     public ResponseEntity<?> getUser (HttpSession httpSession){
         final String login = (String) httpSession.getAttribute("Login");
-        if( login == null)
-            return new ErrorResponse(HttpStatus.CONFLICT, "User not found").getMessage();
+        if( login == null) {
+            ErrorResponse err = new ErrorResponse(HttpStatus.CONFLICT, "User not found");
+            return new ResponseEntity<ErrorResponse>(err, HttpStatus.CONFLICT);
+//            return new ErrorResponse(HttpStatus.CONFLICT, "User not found").getMessage();
+        }
         return new LoginResponse(login).getMessage();
     }
 
