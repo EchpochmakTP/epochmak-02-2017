@@ -70,4 +70,8 @@ public class AccountService {
         return new LinkedList<>(userNameToUserProfile.values());
     }
 
+    public void deleteUsers() {
+        userNameToUserProfile.clear();
+    }
+
 }

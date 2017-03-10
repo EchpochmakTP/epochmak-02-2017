@@ -130,6 +130,12 @@ public class UserController {
         return new UsersListResponse(users).getMessage();
     }
 
+    @DeleteMapping("api/users")
+    public ResponseEntity<?> deleteUsers(HttpSession httpSession) {
+        accountService.deleteUsers();
+        return new OkResponse().getMessage();
+    }
+
     public UserController(@NotNull AccountService accountService, @NotNull PasswordEncoder passwordEncoder) {
         this.accountService = accountService;
         this.passwordEncoder = passwordEncoder;
