@@ -1,9 +1,9 @@
 {
   "numberOfPlayers": 2,
-  "width": 10,
-  "height": 10,
-  "numberOfEnemies": 10,
-  "waveCoff": 2.5,
+  "width": 15,
+  "height": 15,
+  "numberOfEnemies": 20,
+  "waveCoff": 3.0,
   "throneCoff": 0.2,
   "gemsPerRound": 3
 }

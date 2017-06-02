@@ -27,7 +27,7 @@ public class ClientSnapshotsService {
            return processFirstPart(session, snap, gamer);
         }
         else {
-           return processSecondtPart(session, snap, gamer);
+           return processSecondPart(session, snap, gamer);
         }
     }
 
@@ -43,7 +43,7 @@ public class ClientSnapshotsService {
         return true;
     }
 
-    private boolean processSecondtPart(GameSession session, ClientSnap snap, GameUser gamer){
+    private boolean processSecondPart(GameSession session, ClientSnap snap, GameUser gamer){
         if(!session.field.getAvaliableGems().containsKey(snap.getSquare()) &&
                 !gamer.getAvaliableGems().containsKey(snap.getSquare())) {
             return false;
